@@ -1,0 +1,87 @@
+Aquí iré copiando los resultados.
+
+Primero, las diferentes entropías aplicando EntropiaLista facilitada en los 
+apuntes
+
+[ 1, 0.8609430285886073 ]
+[ 2, 0.8581025984388311 ]
+[ 3, 0.892512025091874 ]
+[ 4, 0.8470525168436464 ]
+[ 5, 0.9096039039929217 ]
+[ 6, 0.8957680747344577 ]
+[ 7, 0.9175074670469591 ]
+[ 8, 0.8354370853635057 ]
+[ 9, 0.9270295030000102 ]
+[ 10, 0.9133952634272359 ]
+[ 11, 0.9348286518987378 ]
+[ 12, 0.8866619119911318 ]
+[ 13, 0.9407285736232353 ]
+[ 14, 0.9210606088477984 ]
+[ 15, 0.9407991712906407 ]
+[ 16, 0.8625231587211767 ]
+[ 17, 0.9456252317608339 ]
+[ 18, 0.9305527903975426 ]
+[ 19, 0.9478572362266734 ]
+[ 20, 0.9059518927664517 ]
+
+
+Podemos ver que hay un claro descenso en 8 (y en 16), luego este es nuestro 
+candidato a longitud de la clave.
+
+Con esta longitud, aplicamos clave posible para, a partir de los elementos mas
+repetidos, ver las posibles claves (el espacio, muy común, es 32) , obteniendo:
+
+[ 67, 117, 108, 112, 97, 98, 108, 170 ]
+
+Y lo usamos como clave para aplicar DescifrarVigenere, quedando:
+
+"Uno de  sos exp rtos es\333Pedro L0engo, p*rtavoz \037e Ecolo\"istas e) Acci\303\263), que e.t\303\241 sig0iendo l* q\
+ue oc0rre en  l mar M nor des\037e la pr*pia lag0na. 'Es\333algo qu  llevam*s avisa)do desd  hace 3\353 a\303\261os.\
+\333Hay muc#a gente\333que est~\241 echan\037o la cu'pa a la. \303\272ltim\034s lluvi\034s torre)ciales,\333pero, o\
+\035viament , esto )o ocurr  por un\333fen\303\263me)o meteo-ol\303\263gic* sino q0e hay m0cho m\303\241. detr\303\241\
+. y la c0lpa del\333ser hum\034no es c'ara', e3plica L0engo en\333convers\034ci\303\263n c*n Tekna0tas. Se\"\303\272n \
+est  ecolog$sta, la\333gota fr~\255a solo\333ha agra1ado el +roblema\347 pero d bemos m$rar muc#o m\303\241s \034 la a\
+gr$cultura\333intensi1a y a l\034 falta \037e medid\034s para +roteger\333la zona\351 'Las l'uvias h\034n afect\034do,\
+ est~\241 claro\347 pero s0 impact* habr\303\255\034 sido m0cho men*r si la\333zona es/uviese +reparad\034 para e.tos \
+cas*s y se \"estiona.e la ti rra del\333lugar d  otra f*rma, pe)sando e) todo e' sistem\034. El ag0a ha ar-astrado\333\
+muchos )utrient s que h\034n acaba\037o en el\333mar Men*r, ayud\034ndo a l\034 eutrof$zaci\303\263n\333del agu\034 y,\
+ por\333tanto, \034 la eli(inaci\303\263) del ox~\255geno q0e neces$tan los\333organis(os de l\034 laguna\333para so\
+\035revivir\347 pero l\034 cosa e. que un\333fen\303\263me)o como  ste no \037eber\303\255a\333haber a!ectado /anto', \
+\037etalla  l espec$alista.\333Lo que *curre e) la lag0na cart\034genera .e conoc  entre 'os cien/\303\255ficos\333rel\
+acio)ados co) la eco'og\303\255a c*mo un p-oceso d  eutrof$zaci\303\263n\351 Esto s  da cua)do exis/e una a\036umulaci\
+~\263n de r siduos *rg\303\241nic*s en zo)as de a\"ua tant* marina. como d  agua d0lce, pr*vocando\333la prol$feraci\
+\303nn de ci rtas al\"as. \302\277P*r qu\303\251  s tan p rjudici\034l? Pues\333porque  stas al\"as crec n sin p\034ra\
+r y a\036aban co)sumiend* el ox\303hgeno de\333la bals\034 de agu\034. Si a  so se s0ma el d licado  cosiste(a que t$e\
+ne el (ar Meno-, con u)a renov\034ci\303\263n d  agua b\034stante 'imitada\347 se aca\035a con c\034sos com* los vi.to\
+s est\034s \303\272lti(as sema)as. 'La. im\303\241ge)es se c$\303\261en a 'o ocurr$do esto. d\303\255as  n las o-illas\
+, ,ue es d*nde vem*s a pec s y otr*s anima'es que .e puede) mover 4 huir a\"onizand*, pero 'o peor  st\303\241 en\333e\
+l fond*. Desde\333hace se(anas, e' fondo \037el mar \benor es/\303\241 en a)oxia y /odo lo ,ue hay \034ll\303\255 es/\
+\303\241 pr\303\241\036ticamen/e muert*, pues 'a falta\333de ox\303\255\"eno es /otal. A\037em\303\241s, 'os orga)ismo\
+s q0e muere) ayudan\333a la eu/rofizac$\303\263n, po- lo que\333es una -ueda qu  no par\034', a\303\261a\037e Lueng*."
+
+Podemos ahora ver fácilmente que en la octava posición de este texto, en vez de
+un espacio debería aparecer la letra 'e', ya que claramente la palabra parece ser
+'expertos', luego vemos que la 'e' se corresponde con el número 101, luego restando
+69 (69+32(el espacio)=101), en el código, obtenemos:
+
+"Uno de esos expertos es Pedro Luengo, portavoz de Ecologistas en Acción, que está siguiendo lo que ocurre en el mar\
+ Menor desde la propia laguna. 'Es algo que llevamos avisando desde hace 30 años. Hay mucha gente que está echando l\
+a culpa a las últimas lluvias torrenciales, pero, obviamente, esto no ocurre por un fenómeno meteorológico sino que\
+ hay mucho más detrás y la culpa del ser humano es clara', explica Luengo en conversación con Teknautas. Según est\
+e ecologista, la gota fría solo ha agravado el problema, pero debemos mirar mucho más a la agricultura intensiva y a\
+ la falta de medidas para proteger la zona. 'Las lluvias han afectado, está claro, pero su impacto habría sido mucho\
+ menor si la zona estuviese preparada para estos casos y se gestionase la tierra del lugar de otra forma, pensando en \
+todo el sistema. El agua ha arrastrado muchos nutrientes que han acabado en el mar Menor, ayudando a la eutrofización\
+ del agua y, por tanto, a la eliminación del oxígeno que necesitan los organismos de la laguna para sobrevivir, pero\
+ la cosa es que un fenómeno como este no debería haber afectado tanto', detalla el especialista. Lo que ocurre en la\
+ laguna cartagenera se conoce entre los científicos relacionados con la ecología como un proceso de eutrofización. \
+Esto se da cuando existe una acumulación de residuos orgánicos en zonas de agua tanto marinas como de agua dulce, pr\
+ovocando la proliferación de ciertas algas. ¿Por qué es tan perjudicial? Pues porque estas algas crecen sin parar y\
+ acaban consumiendo el oxígeno de la balsa de agua. Si a eso se suma el delicado ecosistema que tiene el mar Menor, c\
+on una renovación de agua bastante limitada, se acaba con casos como los vistos estas últimas semanas. 'Las imágene\
+s se ciñen a lo ocurrido estos días en las orillas, que es donde vemos a peces y otros animales que se pueden mover \
+y huir agonizando, pero lo peor está en el fondo. Desde hace semanas, el fondo del mar Menor está en anoxia y todo l\
+o que hay allí está prácticamente muerto, pues la falta de oxígeno es total. Además, los organismos que mueren ay\
+udan a la eutrofización, por lo que es una rueda que no para', añade Luengo."
+
+El mensaje descifrado.
